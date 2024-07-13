@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "fetch:tzkt": "node src/utils/fetch-tzkt.js",
-    "fetch:blockscout": "node src/utils/fetch-blockscout.js"
+    "fetch:blockscout": "node src/utils/fetch-blockscout.js",
+    "fetch": "npm run fetch:tzkt && npm run fetch:blockscout"
   },
   "dependencies": {
     "axios": "^1.7.2",

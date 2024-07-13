@@ -53,7 +53,7 @@ async function fetchAndSaveData() {
       timestamp: new Date().getTime(),
       data: processedData,
     };
-    fs.writeFileSync(blockscoutCacheFilePath, JSON.stringify(cache));
+    fs.writeFileSync(blockscoutCacheFilePath, JSON.stringify(cache, null, 2));
 
     console.log("Data fetched and saved successfully");
     return processedData;

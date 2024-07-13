@@ -66,7 +66,7 @@ async function fetchAndSaveData() {
         timestamp: new Date().getTime(),
         data: allData,
       };
-      fs.writeFileSync(cacheFilePath, JSON.stringify(cache));
+      fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));
 
       console.log("Data fetched and saved successfully");
       return allData;

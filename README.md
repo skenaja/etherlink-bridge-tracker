@@ -18,7 +18,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Data refresh
 
 - Every hour, the site's data is refreshed via `npm run fetch` via cron & Github Action
-- see `.github/workflows/fetch.yml
+- see `.github/workflows/fetch.yml`
+- this checks in updated data, which in turn triggers a CF Pages deployment of `main` and updated data is made available to the website
 
 ## Data sources
 

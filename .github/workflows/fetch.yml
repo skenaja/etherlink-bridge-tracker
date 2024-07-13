@@ -4,7 +4,7 @@ name: Run Fetch Task and Commit Data
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour at the beginning of the hour
+    - cron: "0 * * * *" # Runs every hour at the beginning of the hour
   workflow_dispatch:
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install

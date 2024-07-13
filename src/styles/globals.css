@@ -15,8 +15,6 @@
     --background-end-rgb: 0, 0, 0;
   }
 
-
-
   input {
     color: rgb(var(--foreground-rgb)); /* White text */
     background-color: rgb(var(--background-start-rgb)); /* Black background */
@@ -32,8 +30,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; 
-  
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 @layer utilities {

@@ -14,15 +14,15 @@ module.exports = {
       },
       colors: {
         // Replace just one shade of red
-        'red': {
-          '500': '#ff0000', // Your custom color
+        red: {
+          500: "#ff0000", // Your custom color
           // Define other shades if necessary
         },
-        'yellow': {
-          '500': '#ff0', // Your custom color
+        yellow: {
+          500: "#ff0", // Your custom color
         },
-        'green': {
-          '500': '#0f0', // Your custom color
+        green: {
+          500: "#0f0", // Your custom color
         },
       },
     },

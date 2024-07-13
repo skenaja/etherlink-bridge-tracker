@@ -122,7 +122,7 @@ function reconcileData(tzktData, blockscoutData) {
 
     return { matched: sortedMatched, unmatched: sortedUnmatched, notReady: sortedNotReady };
   }
-  
+x  
   function groupByAddress(data) {
     return data.reduce((acc, item) => {
       const address = item.to || item.target_address;
@@ -152,7 +152,6 @@ function reconcileData(tzktData, blockscoutData) {
     return (
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8">Etherlink Mainnet Bridge Withdrawals Tracker</h1>
-        {/* add the timestamps from blockscoutTimestamp & tzktTimestamp in date and time utc iso-6801 format*/}
         <p className="mb-4 text-xs">Data last updated (UTC):&nbsp;
              { formatTimestamp(blockscoutTimestamp) } (Etherlink)&nbsp;
              { formatTimestamp(tzktTimestamp) } (Tezos)

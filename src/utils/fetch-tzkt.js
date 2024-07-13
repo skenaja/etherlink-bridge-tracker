@@ -2,10 +2,8 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-// Define the path to the cache file
 const cacheFilePath = path.join(process.cwd(), 'src', 'data', 'tzktDataCache.json');
 
-// Function to fetch and save data
 async function fetchAndSaveData() {
   const cacheDuration = 3600000; // 1 hour in milliseconds
 
@@ -19,7 +17,6 @@ async function fetchAndSaveData() {
       if (now - cache.timestamp < cacheDuration) {
         // Cache is still valid, return cached data
         console.log('Returning cached data');
-        // console.log(cache.data);
         return cache.data;
       }
     }
@@ -64,7 +61,6 @@ async function fetchAndSaveData() {
       fs.writeFileSync(cacheFilePath, JSON.stringify(cache));
 
       console.log('Data fetched and saved successfully');
-    //   console.log(allData);
       return allData;
     } catch (error) {
       console.error('Error while fetching data:', error);
@@ -74,5 +70,4 @@ async function fetchAndSaveData() {
   }
 }
 
-// Run the function
 fetchAndSaveData();

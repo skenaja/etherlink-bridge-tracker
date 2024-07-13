@@ -18,13 +18,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20' # Specify the Node.js version you are using
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run fetch task
-        run: npm run fetch  # This script should save data in /src/data
+        run: npm run fetch
 
       - name: Commit and push if there are changes
         run: |

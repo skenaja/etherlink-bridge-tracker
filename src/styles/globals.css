@@ -4,15 +4,23 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 56, 255, 156;
+  --background-end-rgb: 56, 255, 156;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 56, 255, 156;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+  }
+
+
+
+  input {
+    color: rgb(var(--foreground-rgb)); /* White text */
+    background-color: rgb(var(--background-start-rgb)); /* Black background */
+    border: 1px solid rgb(56, 255, 156); /* Optional: adds a light border for better visibility */
   }
 }
 
@@ -24,10 +32,19 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; 
+  
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .table-scroll {
+    max-height: 140px; /* Adjust based on your needs for 10 rows */
+    overflow-y: scroll;
   }
 }

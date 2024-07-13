@@ -166,17 +166,50 @@ export default function ReconcilePage({
     setReconciled(result);
   }, [tzktData, blockscoutData]);
 
+  // Calculate sum of amounts and count of items for matched, unmatched & notReady
+  const matchedSum = reconciled.matched.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+  const unmatchedSum = reconciled.unmatched.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+  const notReadySum = reconciled.notReady.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+  const totalSum = matchedSum + unmatchedSum + notReadySum;
+  const tzktAmountSum = tzktData.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+  const blockscoutAmountSum = blockscoutData.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+
+  const matchedCount = reconciled.matched.length;
+  const unmatchedCount = reconciled.unmatched.length;
+  const notReadyCount = reconciled.notReady.length;
+  const totalCount = matchedCount + unmatchedCount + notReadyCount;
+  const tzktCount = tzktData.length;
+  const blockscoutCount = blockscoutData.length;
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">
         Etherlink Mainnet Bridge Withdrawals Tracker
       </h1>
-      <p className="mb-4 text-xs">
-        Data last updated (UTC):&nbsp;
-        {formatTimestamp(blockscoutTimestamp)} (Etherlink)&nbsp;
-        {formatTimestamp(tzktTimestamp)} (Tezos)
-      </p>
-      <p className="mb-4 text-xs">Source: Etherlink Explorer, TzKT API</p>
+      <div className="mb-4 border border-gray-300 p-4">
+        <h2 className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-red-500 via-magenta-500 to-yellow-500 animate-text">
+          ALL BRIDGE WITHDRAWALS TAKE AT LEAST 14 DAYS TO PROCESS. PLEASE BE PATIENT.
+        </h2>
+      </div>
+      {/* Display sum of amounts and count of items */}
+      <div className="mb-4 border border-gray-300 p-4">
+        <p>Amounts: 
+          matched: {matchedSum.toFixed(2)} | 
+          unmatched: {unmatchedSum.toFixed(2)} |
+          notReady: {notReadySum.toFixed(2)} |
+          total: {totalSum.toFixed(2)} |
+          tzkt: {tzktAmountSum.toFixed(2)} |
+          blockscout: {blockscoutAmountSum.toFixed(2)}
+        </p>
+        <p>Counts: 
+          matched: {matchedCount} |
+          unmatched: {unmatchedCount} |
+          notReady: {notReadyCount} |
+          total: {totalCount} |
+          tzkt: {tzktCount} |
+          blockscout: {blockscoutCount}
+        </p>
+      </div>
       <input
         type="text"
         placeholder="Type to filter..."
@@ -203,10 +236,18 @@ export default function ReconcilePage({
         searchTerm={searchTerm}
         hashBaseUrl=""
       />
-      <p>
-        Community tool by <a href="https://twitter.com/bors___">bors__nft</a>.
-        BETA WARNING: Data might be wrong or out of date.
+      <hr className="mb-2 mt-8" />
+      <p className="mb-4 text-xs">
+        BETA WARNING: Data might be wrong or out of date. Updated hourly: &nbsp;
+        {formatTimestamp(blockscoutTimestamp)} UTC (Etherlink)&nbsp;
+        {formatTimestamp(tzktTimestamp)} UTC (Tezos)&nbsp;
       </p>
+      <p className="mb-4 text-xs">Source: Etherlink Explorer, TzKT API</p>
+      <p className="mb-4 text-xs">
+        Community tool by <a href="https://twitter.com/bors___">bors__nft</a> tz1fb6jz7rh4H7AojLShvhiXKaSNDyvkH7sM | 0x4fb30f8cce1f80fc9cc45f7f626069be7549af59
+        
+      </p>
+
     </div>
   );
 }

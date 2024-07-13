@@ -24,7 +24,28 @@ module.exports = {
         green: {
           500: "#0f0", // Your custom color
         },
+        magenta: {
+          500: "#f0f", // Your custom color
+        },
+        cyan: {
+          500: "#0ff", // Your custom color
+        },
       },
+      'animation': {
+            'text':'text 5s ease infinite',
+        },
+        'keyframes': {
+            'text': {
+                '0%, 100%': {
+                   'background-size':'200% 200%',
+                    'background-position': 'left center'
+                },
+                '50%': {
+                   'background-size':'200% 200%',
+                    'background-position': 'right center'
+                }
+            },
+        }
     },
   },
   plugins: [],

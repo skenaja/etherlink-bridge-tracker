@@ -5,16 +5,6 @@ import tzktDataCache from "../data/tzktDataCache.json";
 import blockscoutDataCache from "../data/blockscoutDataCache.json";
 
 export async function getStaticProps() {
-  // const filePath1 = path.resolve('./tzktDataCache.json');
-  // const filePath2 = path.resolve('./blockscoutDataCache.json');
-
-  // const filePath1 = path.join(process.cwd(), 'public', 'tzktDataCache.json');
-  // const filePath2 = path.join(process.cwd(), 'public', 'blockscoutDataCache.json');
-
-  // const jsonData1 = JSON.parse(fs.readFileSync(filePath1, 'utf8'));
-  // const jsonData2 = JSON.parse(fs.readFileSync(filePath2, 'utf8'));
-
-  console.log(tzktDataCache.timestamp, blockscoutDataCache.timestamp);
 
   return {
     props: {
@@ -66,14 +56,6 @@ function reconcileData(tzktData, blockscoutData) {
         blockscoutItem.timestamp,
         currentDate,
       );
-      // write to console the data from blockscoutItem but only if blockscoutitem address is equal to "tz1aAvMu1sNAGwDNahHcQc4yDZ7WwoDNjFzu"
-      if (blockscoutItem.to === "tz1aAvMu1sNAGwDNahHcQc4yDZ7WwoDNjFzu") {
-        console.log("blockscoutItem", blockscoutItem);
-        console.log(
-          "blockscoutDaysSinceTransaction",
-          blockscoutDaysSinceTransaction,
-        );
-      }
 
       if (blockscoutDaysSinceTransaction < 14) {
         notReady.push({ ...blockscoutItem, source: "etherlink" });
@@ -88,23 +70,12 @@ function reconcileData(tzktData, blockscoutData) {
           tzktItem.timestamp,
           blockscoutItem.timestamp,
         );
-        // write to console data from tzktitem only if tzktitem address is equal to "tz1aAvMu1sNAGwDNahHcQc4yDZ7WwoDNjFzu"
-        if (tzktItem.to === "tz1aAvMu1sNAGwDNahHcQc4yDZ7WwoDNjFzu") {
-          console.log("tzktItem", tzktItem);
-          console.log("dayDifference", dayDifference);
-        }
 
         if (
           parseFloat(tzktItem.amount) === parseFloat(blockscoutItem.amount) &&
           dayDifference >= 14 &&
           dayDifference <= 60
         ) {
-          console.log(
-            "match found",
-            tzktItem.amount,
-            blockscoutItem.amount,
-            dayDifference,
-          );
           matched.push({
             from: blockscoutItem.from,
             to: address,

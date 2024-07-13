@@ -1,10 +1,11 @@
-# github action to run `fetch` task using npm   
+# github action to run `fetch` task using npm and commit changes
 
-name: Run Fetch Task
+name: Run Fetch Task and Commit Data
 
 on:
   schedule:
     - cron: '0 * * * *'  # Runs every hour at the beginning of the hour
+  workflow_dispatch:
 
 jobs:
   fetch_task:
@@ -23,4 +24,12 @@ jobs:
         run: npm install
 
       - name: Run fetch task
-        run: npm run fetch  # Assuming 'fetch' is a script defined in your package.json
+        run: npm run fetch  # This script should save data in /src/data
+
+      - name: Commit and push if there are changes
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add src/data/*
+          git commit -m "Automated data update" -a || echo "No changes to commit"
+          git push

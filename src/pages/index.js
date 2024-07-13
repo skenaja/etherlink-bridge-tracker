@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import fs from 'fs';
-import path from 'path';
 import DataDisplay from '../components/DataDisplay';
 
+import tzktDataCache from '/tzktDataCache.json';
+import blockscoutDataCache from '/blockscoutDataCache.json';
+
+
 export async function getStaticProps() {
-  const filePath1 = path.resolve('./tzktDataCache.json');
-  const filePath2 = path.resolve('./blockscoutDataCache.json');
+  // const filePath1 = path.resolve('./tzktDataCache.json');
+  // const filePath2 = path.resolve('./blockscoutDataCache.json');
 
-  const jsonData1 = JSON.parse(fs.readFileSync(filePath1, 'utf8'));
-  const jsonData2 = JSON.parse(fs.readFileSync(filePath2, 'utf8'));
+  // const filePath1 = path.join(process.cwd(), 'public', 'tzktDataCache.json');
+  // const filePath2 = path.join(process.cwd(), 'public', 'blockscoutDataCache.json');
 
-  console.log(jsonData1.timestamp, jsonData2.timestamp);
+  // const jsonData1 = JSON.parse(fs.readFileSync(filePath1, 'utf8'));
+  // const jsonData2 = JSON.parse(fs.readFileSync(filePath2, 'utf8'));
+
+  console.log(tzktDataCache.timestamp, blockscoutDataCache.timestamp);
   
   return {
     props: {
-      tzktData: jsonData1.data,
-      blockscoutData: jsonData2.data,
-      tzktTimestamp: jsonData1.timestamp,
-      blockscoutTimestamp: jsonData2.timestamp,
+      tzktData: tzktDataCache.data,
+      blockscoutData: blockscoutDataCache.data,
+      tzktTimestamp: tzktDataCache.timestamp,
+      blockscoutTimestamp: blockscoutDataCache.timestamp,
     },
   };
 }

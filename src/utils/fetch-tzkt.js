@@ -1,12 +1,12 @@
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 // Define the path to the cache file
-// const cacheFilePath = path.resolve('./tzktDataCache.json');
 const cacheFilePath = path.join(process.cwd(), 'public', 'tzktDataCache.json');
 
-export default async function handler(req, res) {
+// Function to fetch and save data
+async function fetchAndSaveData() {
   const cacheDuration = 3600000; // 1 hour in milliseconds
 
   try {
@@ -18,7 +18,9 @@ export default async function handler(req, res) {
       const now = new Date().getTime();
       if (now - cache.timestamp < cacheDuration) {
         // Cache is still valid, return cached data
-        return res.status(200).json(cache.data);
+        console.log('Returning cached data');
+        // console.log(cache.data);
+        return cache.data;
       }
     }
 
@@ -61,13 +63,16 @@ export default async function handler(req, res) {
       };
       fs.writeFileSync(cacheFilePath, JSON.stringify(cache));
 
-      res.status(200).json(allData);
+      console.log('Data fetched and saved successfully');
+    //   console.log(allData);
+      return allData;
     } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Error while fetching data:', error);
     }
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred' });
   }
 }
+
+// Run the function
+fetchAndSaveData();

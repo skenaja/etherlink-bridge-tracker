@@ -1,6 +1,6 @@
-import { ethers } from 'ethers';
+const { ethers } = require('ethers');
 
-export function decodeInputData(inputData, abiSignature) {
+function decodeInputData(inputData, abiSignature) {
   try {
     // Remove '0x' prefix if present
     inputData = inputData.startsWith('0x') ? inputData.slice(2) : inputData;
@@ -26,3 +26,5 @@ export function decodeInputData(inputData, abiSignature) {
     return null;
   }
 }
+
+module.exports = { decodeInputData };

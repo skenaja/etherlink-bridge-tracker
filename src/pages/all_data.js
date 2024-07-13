@@ -10,15 +10,15 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const tzktResponse = await axios.get('/api/process-tzkt-data');
+        const tzktResponse = await axios.get('/tzktDataCache.json');
         setTzktData(tzktResponse.data);
         // add some debugging here to check what data came back from setTzktData
-        console.log(tzktResponse.data);
+        // console.log(tzktResponse.data);
 
-        const ethereumResponse = await axios.get('/api/process-ethereum-data');
+        const ethereumResponse = await axios.get('/blockscoutDataCache.json');
         setEthereumData(ethereumResponse.data);
         // add some debugging here to check what data came back from setEthereumData
-        console.log(ethereumResponse.data);
+        // console.log(ethereumResponse.data);
 
       } catch (error) {
         console.error('Error fetching data:', error);

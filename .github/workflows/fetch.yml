@@ -33,3 +33,5 @@ jobs:
           git add src/data/*
           git commit -m "Automated data update" -a || echo "No changes to commit"
           git push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

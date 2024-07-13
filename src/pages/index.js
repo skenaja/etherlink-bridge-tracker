@@ -169,6 +169,7 @@ function reconcileData(tzktData, blockscoutData) {
         <DataDisplay data={reconciled.matched} title="&#x2705; Transferred" searchTerm={searchTerm} hashBaseUrl="" />
         <DataDisplay data={reconciled.unmatched} title="&#x2757; Ready but Temporarily Stuck" searchTerm={searchTerm} hashBaseUrl=""/>
         <DataDisplay data={reconciled.notReady} title="&#x1F4A4; Not Ready - transfer was less than 14 days ago" searchTerm={searchTerm} hashBaseUrl=""/>
+        <p>Community tool by <a href="https://twitter.com/bors___">bors__nft</a>. BETA WARNING: Data might be wrong or out of date.</p>
       </div>
     );
   }

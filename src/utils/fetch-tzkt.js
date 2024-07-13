@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Define the path to the cache file
-const cacheFilePath = path.join(process.cwd(), 'public', 'tzktDataCache.json');
+const cacheFilePath = path.join(process.cwd(), 'src', 'data', 'tzktDataCache.json');
 
 // Function to fetch and save data
 async function fetchAndSaveData() {

@@ -6,7 +6,7 @@ const { decodeInputData } = require('./ethereumDecoder'); // Adjust the path if 
 
 const abiSignature = 'withdraw_base58(string)';
 // Define the path to the cache file
-const blockscoutCacheFilePath = path.join(process.cwd(), 'public', 'blockscoutDataCache.json');
+const blockscoutCacheFilePath = path.join(process.cwd(), 'src','data','blockscoutDataCache.json');
 
 // Function to fetch and save data
 async function fetchAndSaveData() {

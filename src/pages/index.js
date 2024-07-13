@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import DataDisplay from '../components/DataDisplay';
 
-import tzktDataCache from '/tzktDataCache.json';
-import blockscoutDataCache from '/blockscoutDataCache.json';
+import tzktDataCache from '../data/tzktDataCache.json';
+import blockscoutDataCache from '../data/blockscoutDataCache.json';
 
 
 export async function getStaticProps() {

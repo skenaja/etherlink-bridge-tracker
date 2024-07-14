@@ -72,7 +72,7 @@ function reconcileData(tzktData, blockscoutData) {
         );
 
         if (
-          parseFloat(tzktItem.amount) === parseFloat(blockscoutItem.amount) &&
+          parseFloat(tzktItem.amount) === (Math.floor(parseFloat(blockscoutItem.amount) * 1e6) / 1e6) &&
           dayDifference >= 14 &&
           dayDifference <= 60
         ) {

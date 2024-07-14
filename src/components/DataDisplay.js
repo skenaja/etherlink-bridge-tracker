@@ -70,9 +70,10 @@ const DataDisplay = ({ data, title, searchTerm, hashBaseUrl = "" }) => {
                   {Object.entries(item).map(([key, value], i) => {
                     // Determine the base URL based on the key
                     let dynamicBaseUrl = "";
-                    if (key === "tezosTx") {
+
+                    if ( item["source"] === "tezos" || key === "tezosTx" ) {
                       dynamicBaseUrl = "https://tzkt.io";
-                    } else if (key === "etherlinkTx") {
+                    } else if (item["source"] === "etherlink" || key === "etherlinkTx") {
                       dynamicBaseUrl = "https://explorer.etherlink.com/tx";
                     }
 

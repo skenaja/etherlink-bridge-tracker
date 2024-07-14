@@ -46,10 +46,11 @@ async function fetchAndSaveData() {
         if (data.length > 0) {
           // Process and add the fetched data to the allData array
           const processedData = data.map((item) => ({
-            timestamp: item.timestamp.split("T")[0],
+            received: item.timestamp.split("T")[0],
             to: item.target?.address || "",
             amount: parseFloat(item.amount) / 1e6,
             hash: item.hash,
+            timestamp: new Date(item.timestamp).toISOString(),
           }));
           allData = allData.concat(processedData);
 

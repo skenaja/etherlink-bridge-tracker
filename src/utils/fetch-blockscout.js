@@ -39,13 +39,14 @@ async function fetchAndSaveData() {
     const data = response.data["result"];
 
     const processedData = data.map((tx) => ({
-      timestamp: new Date(parseInt(tx.timeStamp) * 1000)
+      sent: new Date(parseInt(tx.timeStamp) * 1000)
         .toISOString()
         .split("T")[0],
       from: tx.from,
       to: decodeInputData(tx.input, abiSignature),
       amount: ethers.utils.formatEther(tx.value),
       hash: tx.hash,
+      timestamp: new Date(parseInt(tx.timeStamp) * 1000).toISOString(),
     }));
 
     // Cache the new data with a timestamp

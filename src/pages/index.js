@@ -80,9 +80,12 @@ function reconcileData(tzktData, blockscoutData) {
             from: blockscoutItem.from,
             to: address,
             amount: tzktItem.amount,
-            sent: blockscoutItem.timestamp,
-            received: tzktItem.timestamp,
-            duration: `${dayDifference} days`,
+            sent: blockscoutItem.timestamp.split("T")[0],
+            received: tzktItem.timestamp.split("T")[0],
+            duration: `${calculateDayDifference(
+              tzktItem.timestamp,
+              blockscoutItem.timestamp,
+              "hours")}`,
             tezosTx: tzktItem.hash,
             etherlinkTx: blockscoutItem.hash,
           });
@@ -125,6 +128,10 @@ function reconcileData(tzktData, blockscoutData) {
     (a, b) => new Date(a.timestamp) - new Date(b.timestamp),
   );
 
+  // remove timestamps from notready and unmatched
+  sortedNotReady.forEach((item) => delete item.timestamp);
+  sortedUnmatched.forEach((item) => delete item.timestamp);
+
   return {
     matched: sortedMatched,
     unmatched: sortedUnmatched,
@@ -143,9 +150,14 @@ function groupByAddress(data) {
   }, {});
 }
 
-function calculateDayDifference(date1, date2) {
+function calculateDayDifference(date1, date2, format = "days") {
   const diffTime = Math.abs(new Date(date2) - new Date(date1));
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  if (format === "hours") {
+    const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    return `${days}d ${hours}h`;
+  }
+  return days;
 }
 
 export default function ReconcilePage({

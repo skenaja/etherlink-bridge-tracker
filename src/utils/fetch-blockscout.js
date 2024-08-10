@@ -38,7 +38,10 @@ async function fetchAndSaveData() {
     const response = await axios.get(url);
     const data = response.data["result"];
 
-    const processedData = data.map((tx) => ({
+    // Filter out records with isError = 1
+    const filteredData = data.filter(tx => tx.isError === "0");
+
+    const processedData = filteredData.map((tx) => ({
       sent: new Date(parseInt(tx.timeStamp) * 1000)
         .toISOString()
         .split("T")[0],

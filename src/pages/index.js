@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataDisplay from "../components/DataDisplay";
+import TipJarButton from '../components/TipJarButton';
 
 import tzktDataCache from "../data/tzktDataCache.json";
 import blockscoutDataCache from "../data/blockscoutDataCache.json";
@@ -195,9 +196,15 @@ export default function ReconcilePage({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">
-        Etherlink Mainnet Bridge Withdrawals Tracker
-      </h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold">
+          Etherlink Mainnet Bridge Withdrawals Tracker
+        </h1>
+        <div className="w-1/4 p-4 rounded-lg bg-gradient-to-r from-red-500 via-magenta-500 to-yellow-500 animate-text">
+          <p className="text-white mb-2">Found this site helpful?</p>
+          <TipJarButton tipAmount="1" />
+        </div>
+      </div>
       <div className="mb-4 border border-gray-300 p-4">
         <h2 className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-red-500 via-magenta-500 to-yellow-500 animate-text">
           ALL BRIDGE WITHDRAWALS TAKE AT LEAST 14 DAYS TO PROCESS. PLEASE BE PATIENT.
@@ -259,7 +266,6 @@ export default function ReconcilePage({
         Community tool by <a href="https://twitter.com/bors___">bors__nft</a> tz1fb6jz7rh4H7AojLShvhiXKaSNDyvkH7sM | 0x4fb30f8cce1f80fc9cc45f7f626069be7549af59
         
       </p>
-
     </div>
   );
 }

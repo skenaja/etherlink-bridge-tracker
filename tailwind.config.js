@@ -1,52 +1,95 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      colors: {
-        // Replace just one shade of red
-        red: {
-          500: "#ff0000", // Your custom color
-          // Define other shades if necessary
-        },
-        yellow: {
-          500: "#ff0", // Your custom color
-        },
-        green: {
-          500: "#0f0", // Your custom color
-        },
-        magenta: {
-          500: "#f0f", // Your custom color
-        },
-        cyan: {
-          500: "#0ff", // Your custom color
-        },
-      },
-      'animation': {
-            'text':'text 5s ease infinite',
-        },
-        'keyframes': {
-            'text': {
-                '0%, 100%': {
-                   'background-size':'200% 200%',
-                    'background-position': 'left center'
-                },
-                '50%': {
-                   'background-size':'200% 200%',
-                    'background-position': 'right center'
-                }
-            },
-        }
-    },
+  	extend: {
+  		backgroundImage: {
+  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+  		},
+  		colors: {
+  			red: {
+  				'500': '#ff0000'
+  			},
+  			yellow: {
+  				'500': '#ff0'
+  			},
+  			green: {
+  				'500': '#0f0'
+  			},
+  			magenta: {
+  				'500': '#f0f'
+  			},
+  			cyan: {
+  				'500': '#0ff'
+  			},
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		animation: {
+  			text: 'text 5s ease infinite'
+  		},
+  		keyframes: {
+  			text: {
+  				'0%, 100%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'left center'
+  				},
+  				'50%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'right center'
+  				}
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

@@ -72,8 +72,10 @@ function reconcileData(tzktData, blockscoutData) {
           blockscoutItem.timestamp,
         );
 
+        const toBigInt = (num) => BigInt(Math.floor(parseFloat(num) * 1e6));
+
         if (
-          parseFloat(tzktItem.amount) === (Math.floor(parseFloat(blockscoutItem.amount) * 1e6) / 1e6) &&
+          toBigInt(tzktItem.amount) === toBigInt(blockscoutItem.amount) &&
           dayDifference >= 14 &&
           dayDifference <= 60
         ) {
@@ -114,6 +116,8 @@ function reconcileData(tzktData, blockscoutData) {
       }
     });
   });
+
+console.log("unmatched", unmatched);
 
   // sort matched based on descending order of received timestamp
   const sortedMatched = matched.sort(

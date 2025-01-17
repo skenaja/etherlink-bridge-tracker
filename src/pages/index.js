@@ -117,8 +117,6 @@ function reconcileData(tzktData, blockscoutData) {
     });
   });
 
-console.log("unmatched", unmatched);
-
   // sort matched based on descending order of received timestamp
   const sortedMatched = matched.sort(
     (a, b) => new Date(b.received) - new Date(a.received),

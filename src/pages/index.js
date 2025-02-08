@@ -56,10 +56,21 @@ function reconcileData(tzktData, blockscoutData) {
       const blockscoutDaysSinceTransaction = calculateDayDifference(
         blockscoutItem.timestamp,
         currentDate,
+        "days"
+      );
+      const blockscoutDuration = calculateDayDifference(
+        blockscoutItem.timestamp,
+        currentDate,
+        "hours"
       );
 
       if (blockscoutDaysSinceTransaction < 14) {
-        notReady.push({ ...blockscoutItem, source: "etherlink" });
+        notReady.push({ 
+          ...blockscoutItem, 
+          source: "etherlink", 
+          sent: blockscoutItem.timestamp.split("T")[0],
+          duration: blockscoutDuration 
+        });
         continue;
       }
 
@@ -99,7 +110,12 @@ function reconcileData(tzktData, blockscoutData) {
       }
 
       if (!matchFound) {
-        unmatched.push({ ...blockscoutItem, source: "etherlink" });
+        unmatched.push({ 
+          ...blockscoutItem, 
+          source: "etherlink", 
+          sent: blockscoutItem.timestamp.split("T")[0],
+          duration: blockscoutDuration 
+        });
       }
     }
 
@@ -108,11 +124,27 @@ function reconcileData(tzktData, blockscoutData) {
       const tzktDaysSinceTransaction = calculateDayDifference(
         tzktItem.timestamp,
         currentDate,
+        "days"
+      );
+      const tzktDuration = calculateDayDifference(
+        tzktItem.timestamp,
+        currentDate,
+        "hours"
       );
       if (tzktDaysSinceTransaction < 14) {
-        notReady.push({ ...tzktItem, source: "tezos" });
+        notReady.push({ 
+          ...tzktItem, 
+          source: "tezos", 
+          sent: tzktItem.timestamp.split("T")[0],
+          duration: tzktDuration 
+        });
       } else {
-        unmatched.push({ ...tzktItem, source: "tezos" });
+        unmatched.push({ 
+          ...tzktItem, 
+          source: "tezos", 
+          sent: tzktItem.timestamp.split("T")[0],
+          duration: tzktDuration 
+        });
       }
     });
   });

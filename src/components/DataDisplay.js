@@ -20,9 +20,9 @@ const DataDisplay = ({ data, title, searchTerm, hashBaseUrl = "" }) => {
     if (!isUnmatched || !timestamp) return "";
     const daysSince = calculateDaysSince(timestamp);
     if (daysSince > 16) {
-      return "bg-red-500 text-black font-bold text-nowrap";
+      return "bg-red-500 text-white text-nowrap font-normal";
     } else if (daysSince >= 14) {
-      return "bg-yellow-500 text-black font-bold text-nowrap";
+      return "bg-yellow-500 text-black font-normal text-nowrap";
     }
     return "";
   };
@@ -37,7 +37,7 @@ const DataDisplay = ({ data, title, searchTerm, hashBaseUrl = "" }) => {
 
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <span key={index} className="bg-yellow-500 text-black">
+        <span key={index} className="bg-yellow-500 text-black ">
           {part}
         </span>
       ) : (

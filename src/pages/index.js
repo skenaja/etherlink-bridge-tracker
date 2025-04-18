@@ -30,9 +30,9 @@ function reconcileData(tzktData, blockscoutData) {
   const sortedTzktData = [...tzktData].sort(
     (a, b) => new Date(a.timestamp) - new Date(b.timestamp),
   );
-  const sortedBlockscoutData = [...blockscoutData].sort(
-    (a, b) => new Date(a.timestamp) - new Date(b.timestamp),
-  );
+  const sortedBlockscoutData = [...blockscoutData]
+    .filter((item) => item.type !== "fast_withdraw_base58" && item.type !== "withdraw") // Filter out unwanted types
+    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
   const matched = [];
   const unmatched = [];
@@ -163,9 +163,17 @@ function reconcileData(tzktData, blockscoutData) {
     (a, b) => new Date(a.timestamp) - new Date(b.timestamp),
   );
 
-  // remove timestamps from notready and unmatched
-  sortedNotReady.forEach((item) => delete item.timestamp);
-  sortedUnmatched.forEach((item) => delete item.timestamp);
+  // remove timestamps and data fields from notReady and unmatched
+  sortedNotReady.forEach((item) => {
+    delete item.timestamp;
+    delete item.data;
+    delete item.type;
+  });
+  sortedUnmatched.forEach((item) => {
+    delete item.timestamp;
+    delete item.data;
+    delete item.type;
+  });
 
   return {
     matched: sortedMatched,
@@ -291,7 +299,7 @@ export default function ReconcilePage({
       />
       <hr className="mb-2 mt-8" />
       <p className="mb-4 text-xs">
-        BETA WARNING: Data might be wrong or out of date. Updated hourly: &nbsp;
+        BETA WARNING: Data might be wrong or out of date. Currently Excludes Fast Withdrawals. Updated hourly: &nbsp;
         {formatTimestamp(blockscoutTimestamp)} UTC (Etherlink)&nbsp;
         {formatTimestamp(tzktTimestamp)} UTC (Tezos)&nbsp;
       </p>

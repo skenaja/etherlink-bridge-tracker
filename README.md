@@ -34,6 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - etherlink amounts are floored to 6 decimal places because that's what tezos will send to the recipient. not sure what happens to the dust on etherlink, probably stuck there for ever.
 - because there are many transfers of similar amts by an account (eg 100 xtz, often on the same date), with no obvious identifiers available to match specific transactions, this approach is a quick and dirty way to do reconciliation to flag up late/missing transfers.
 - if an outbox ticket is missed or processed out of sequence, you still end up showing that an account is missing some tez, but the "wrong" withdrawal might be flagged if there are multiple transactions of same amt.
+- Fast withdrawals are excluded from the main recs for now
 
 ## License
 

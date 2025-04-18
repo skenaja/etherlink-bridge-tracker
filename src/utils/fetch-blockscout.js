@@ -4,7 +4,6 @@ const path = require("path");
 const ethers = require("ethers");
 const { decodeInputData } = require("./ethereumDecoder");
 
-const abiSignature = "withdraw_base58(string)";
 const blockscoutCacheFilePath = path.join(
   process.cwd(),
   "src",
@@ -41,16 +40,33 @@ async function fetchAndSaveData() {
     // Filter out records with isError = 1
     const filteredData = data.filter(tx => tx.isError === "0");
 
-    const processedData = filteredData.map((tx) => ({
-      sent: new Date(parseInt(tx.timeStamp) * 1000)
-        .toISOString()
-        .split("T")[0],
-      from: tx.from,
-      to: decodeInputData(tx.input, abiSignature),
-      amount: ethers.utils.formatEther(tx.value),
-      hash: tx.hash,
-      timestamp: new Date(parseInt(tx.timeStamp) * 1000).toISOString(),
-    }));
+    const processedData = filteredData.map((tx) => {
+      const decoded = decodeInputData(tx.input);
+      let toAddress = "";
+      let type = "unknown";
+
+      if (decoded) {
+        type = decoded.type;
+        if (type === "withdraw_base58" || type === "fast_withdraw_base58") {
+          toAddress = decoded.decodedData[0];
+        } else if (type === "withdraw") {
+          toAddress = ""; // Leave blank for now
+        }
+      }
+
+      return {
+        sent: new Date(parseInt(tx.timeStamp) * 1000)
+          .toISOString()
+          .split("T")[0],
+        from: tx.from,
+        to: toAddress,
+        amount: ethers.utils.formatEther(tx.value),
+        hash: tx.hash,
+        timestamp: new Date(parseInt(tx.timeStamp) * 1000).toISOString(),
+        data: tx.input,
+        type: type,
+      };
+    });
 
     // Cache the new data with a timestamp
     const cache = {

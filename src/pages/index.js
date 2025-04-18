@@ -221,20 +221,24 @@ export default function ReconcilePage({
     setReconciled(result);
   }, [tzktData, blockscoutData]);
 
+  const filteredBlockscoutData = blockscoutData.filter(
+    (item) => item.type !== "fast_withdraw_base58" && item.type !== "withdraw"
+  );
+
   // Calculate sum of amounts and count of items for matched, unmatched & notReady
   const matchedSum = reconciled.matched.reduce((acc, item) => acc + parseFloat(item.amount), 0);
   const unmatchedSum = reconciled.unmatched.reduce((acc, item) => acc + parseFloat(item.amount), 0);
   const notReadySum = reconciled.notReady.reduce((acc, item) => acc + parseFloat(item.amount), 0);
   const totalSum = matchedSum + unmatchedSum + notReadySum;
   const tzktAmountSum = tzktData.reduce((acc, item) => acc + parseFloat(item.amount), 0);
-  const blockscoutAmountSum = blockscoutData.reduce((acc, item) => acc + parseFloat(item.amount), 0);
+  const blockscoutAmountSum = filteredBlockscoutData.reduce((acc, item) => acc + parseFloat(item.amount), 0);
 
   const matchedCount = reconciled.matched.length;
   const unmatchedCount = reconciled.unmatched.length;
   const notReadyCount = reconciled.notReady.length;
   const totalCount = matchedCount + unmatchedCount + notReadyCount;
   const tzktCount = tzktData.length;
-  const blockscoutCount = blockscoutData.length;
+  const blockscoutCount = filteredBlockscoutData.length;
 
   return (
     <div className="container mx-auto px-4 py-8">

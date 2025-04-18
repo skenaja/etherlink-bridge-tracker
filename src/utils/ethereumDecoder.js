@@ -48,9 +48,9 @@ function decodeInputData(inputData) {
       `0x${inputData}`,
     );
 
-    console.log("inputData:", inputData);
-    console.log("Decoded type:", type);
-    console.log("Decoded data:", decodedParams);
+    // console.log("inputData:", inputData);
+    // console.log("Decoded type:", type);
+    // console.log("Decoded data:", decodedParams);
 
     return { type, decodedData: decodedParams };
   } catch (error) {

@@ -44,6 +44,7 @@ async function fetchAndSaveData() {
       const decoded = decodeInputData(tx.input);
       let toAddress = "";
       let type = "unknown";
+      let extraData = "";
 
       if (decoded) {
         type = decoded.type;
@@ -52,6 +53,7 @@ async function fetchAndSaveData() {
         } else if (type === "withdraw") {
           toAddress = ""; // Leave blank for now
         }
+        extraData = decoded.decodedData;
       }
 
       return {
@@ -65,6 +67,7 @@ async function fetchAndSaveData() {
         timestamp: new Date(parseInt(tx.timeStamp) * 1000).toISOString(),
         data: tx.input,
         type: type,
+        extraData: extraData,
       };
     });
 

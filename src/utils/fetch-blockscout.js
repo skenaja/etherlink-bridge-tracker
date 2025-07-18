@@ -13,7 +13,7 @@ const blockscoutCacheFilePath = path.join(
 
 // Function to fetch and save data
 async function fetchAndSaveData() {
-  const cacheDuration = 3600000; // 1 hour in milliseconds
+  const cacheDuration = 8 * 60 * 1000; // 8 minutes in milliseconds
   console.log("start process-ethereum-data.js");
 
   try {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import DataDisplay from "../components/DataDisplay";
 import TipJarButton from '../components/TipJarButton';
 
@@ -247,6 +248,11 @@ export default function ReconcilePage({
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">
           Etherlink Mainnet Bridge Withdrawals Tracker
+          <span className="block text-base font-normal mt-1">
+            <span className="font-bold">slow</span>
+            {" | "}
+            <Link href="/fast" className="underline text-blue-600">fast</Link>
+          </span>
         </h1>
         <div className="w-1/4 p-4 rounded-lg bg-gradient-to-r from-red-500 via-magenta-500 to-yellow-500 animate-text">
           <p className="text-white mb-2">Found this site helpful?</p>
@@ -305,7 +311,7 @@ export default function ReconcilePage({
       />
       <hr className="mb-2 mt-8" />
       <p className="mb-4 text-xs">
-        BETA WARNING: Data might be wrong or out of date. Currently Excludes Fast Withdrawals. Updated hourly: &nbsp;
+        BETA WARNING: Data might be wrong or out of date. Currently Excludes Fast Withdrawals, see <Link href="/fast">/fast</Link> for fast withdrawals. Updated hourly: &nbsp;
         {formatTimestamp(blockscoutTimestamp)} UTC (Etherlink)&nbsp;
         {formatTimestamp(tzktTimestamp)} UTC (Tezos)&nbsp;
       </p>

@@ -9,6 +9,43 @@ const cacheFilePath = path.join(
   "tzktDataCache.json",
 );
 
+const fastEventsCacheFilePath = path.join(
+  process.cwd(),
+  "src",
+  "data",
+  "tzktFastEventsCache.json",
+);
+
+function loadFastSettlementKeys() {
+  const keys = new Set();
+
+  if (!fs.existsSync(fastEventsCacheFilePath)) {
+    console.warn(
+      "tzktFastEventsCache.json not found; skipping fast withdrawal filtering",
+    );
+    return keys;
+  }
+
+  try {
+    const fastEventsFile = fs.readFileSync(fastEventsCacheFilePath);
+    const fastEventsCache = JSON.parse(fastEventsFile);
+
+    for (const event of fastEventsCache.data || []) {
+      if (event.tag === "settle_withdrawal") {
+        keys.add(`${event.hash}|${event.receiver}|${event.full_amount}`);
+      }
+    }
+  } catch (error) {
+    console.warn(
+      "Unable to parse tzktFastEventsCache.json; skipping fast withdrawal filtering",
+      error,
+    );
+    keys.clear();
+  }
+
+  return keys;
+}
+
 async function fetchAndSaveData() {
   const cacheDuration = 8 * 60 * 1000; // 8 minutes in milliseconds
 
@@ -31,6 +68,9 @@ async function fetchAndSaveData() {
       "https://api.tzkt.io/v1/accounts/KT1CeFqjJRJPNVvhvznQrWfHad2jCiDZ6Lyj/operations?sort.desc=level&sender=KT1CeFqjJRJPNVvhvznQrWfHad2jCiDZ6Lyj&entrypoint.null";
     let lastId = null; // Initialize lastId for pagination
     let allData = []; // Array to collect all pages of data
+    let excludedFastCount = 0; // Count of fast-withdrawal settlements filtered out
+
+    const fastSettlementKeys = loadFastSettlementKeys();
 
     try {
       let hasMoreData = true; // Flag to control the loop
@@ -44,8 +84,21 @@ async function fetchAndSaveData() {
         const data = response.data;
 
         if (data.length > 0) {
+          // Filter out fast-withdrawal settlements (identified by matching
+          // hash + receiver + amount, compared in raw mutez, against the
+          // settle_withdrawal events cache) before they reach the slow
+          // withdrawal reconciliation data
+          const filteredData = data.filter((item) => {
+            const key = `${item.hash}|${item.target?.address}|${item.amount}`;
+            if (fastSettlementKeys.has(key)) {
+              excludedFastCount += 1;
+              return false;
+            }
+            return true;
+          });
+
           // Process and add the fetched data to the allData array
-          const processedData = data.map((item) => ({
+          const processedData = filteredData.map((item) => ({
             received: item.timestamp.split("T")[0],
             to: item.target?.address || "",
             amount: parseFloat(item.amount) / 1e6,
@@ -69,6 +122,9 @@ async function fetchAndSaveData() {
       };
       fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));
 
+      console.log(
+        `Excluded ${excludedFastCount} fast withdrawal settlement(s) from tzkt data`,
+      );
       console.log("Data fetched and saved successfully");
       return allData;
     } catch (error) {

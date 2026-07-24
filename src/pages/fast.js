@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import TipJarButton from "../components/TipJarButton";
 
 import etherlinkFastLogsCache from "../data/etherlinkFastLogsCache.json";
@@ -267,6 +268,11 @@ export default function FastWithdrawalsPage({
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">
           Etherlink Mainnet Fast Withdrawals Tracker
+          <span className="block text-base font-normal mt-1">
+            <Link href="/" className="underline text-blue-600">slow</Link>
+            {" | "}
+            <span className="font-bold">fast</span>
+          </span>
         </h1>
         <div className="w-1/4 p-4 rounded-lg bg-gradient-to-r from-red-500 via-magenta-500 to-yellow-500 animate-text">
           <p className="text-white mb-2">Found this site helpful?</p>

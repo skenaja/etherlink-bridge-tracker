@@ -13,7 +13,7 @@ const blockscoutCacheFilePath = path.join(
 
 // Function to fetch and save data
 async function fetchAndSaveData() {
-  const cacheDuration = 3600000; // 1 hour in milliseconds
+  const cacheDuration = 8 * 60 * 1000; // 8 minutes in milliseconds
   console.log("start process-ethereum-data.js");
 
   try {
@@ -44,6 +44,7 @@ async function fetchAndSaveData() {
       const decoded = decodeInputData(tx.input);
       let toAddress = "";
       let type = "unknown";
+      let extraData = "";
 
       if (decoded) {
         type = decoded.type;
@@ -52,6 +53,7 @@ async function fetchAndSaveData() {
         } else if (type === "withdraw") {
           toAddress = ""; // Leave blank for now
         }
+        extraData = decoded.decodedData;
       }
 
       return {
@@ -65,6 +67,7 @@ async function fetchAndSaveData() {
         timestamp: new Date(parseInt(tx.timeStamp) * 1000).toISOString(),
         data: tx.input,
         type: type,
+        extraData: extraData,
       };
     });
 

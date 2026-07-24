@@ -31,7 +31,7 @@ function reconcileData(tzktData, blockscoutData) {
     (a, b) => new Date(a.timestamp) - new Date(b.timestamp),
   );
   const sortedBlockscoutData = [...blockscoutData]
-    .filter((item) => item.type !== "fast_withdraw_base58" && item.type !== "withdraw") // Filter out unwanted types
+    .filter((item) => item.type == "withdraw_base58") // Filter only withdraw_base58 type
     .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
   const matched = [];
@@ -168,11 +168,13 @@ function reconcileData(tzktData, blockscoutData) {
     delete item.timestamp;
     delete item.data;
     delete item.type;
+    delete item.extraData;
   });
   sortedUnmatched.forEach((item) => {
     delete item.timestamp;
     delete item.data;
     delete item.type;
+    delete item.extraData;
   });
 
   return {

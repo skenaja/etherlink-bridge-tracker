@@ -5,6 +5,7 @@ list of signatures & functions:
 cda4fee2: withdraw_base58(string) # target
 80fc1fe3: withdraw(address,bytes,uint256,bytes22,bytes) # ticketOwner, receiver, amount, ticketer, content
 67a32cd7: fast_withdraw_base58(string,string,bytes) # target, fast_withdrawal_contract, payload
+62e8e01e: EVENT FastWithdrawal(bytes22,uint256,uint256,uint256,bytes,address)  # l1 target address, withdrawal_id, amount, timestamp, payload, 
 */
 
 // Lookup table for ABI signatures
@@ -20,6 +21,10 @@ const abiLookupTable = {
   "67a32cd7": {
     abiSignature: "fast_withdraw_base58(string,string,bytes)",
     type: "fast_withdraw_base58",
+  },
+  "62e8e01e": {
+    abiSignature: "FastWithdrawal(bytes22,uint256,uint256,uint256,bytes,address)",
+    type: "FastWithdrawal",
   },
 };
 

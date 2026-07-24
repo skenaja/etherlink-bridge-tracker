@@ -34,7 +34,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - etherlink amounts are floored to 6 decimal places because that's what tezos will send to the recipient. not sure what happens to the dust on etherlink, probably stuck there for ever.
 - because there are many transfers of similar amts by an account (eg 100 xtz, often on the same date), with no obvious identifiers available to match specific transactions, this approach is a quick and dirty way to do reconciliation to flag up late/missing transfers.
 - if an outbox ticket is missed or processed out of sequence, you still end up showing that an account is missing some tez, but the "wrong" withdrawal might be flagged if there are multiple transactions of same amt.
-- Fast withdrawals are excluded from the main recs for now
+
+## Data reconciliation - fast withdrawals
+
+- reconciled on `/fast` across three legs joined by `withdrawal_id`
+- L2 FastWithdrawal events (Blockscout v2 API)
+- L1 liquidity-provider payouts and L1 rollup settlements (TzKT contract events, tags `payout_withdrawal` / `settle_withdrawal` on `KT1BGwyCrnJ6HuEYP7X8Q2UooTdxmEYHiK6j`)
+- statuses cover the full lifecycle: `pending` → `paid_awaiting_settlement` → `completed`, plus `settled_direct` (slow-path) and anomaly flags (e.g. overdue unsettled payouts)
+- reconciliation logic lives in `src/lib/fastWithdrawalRecon.js`
 
 ## License
 

@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "fetch:tzkt": "node src/utils/fetch-tzkt.js",
+    "fetch:tzktfastevents": "node src/utils/fetch-tzkt-fast-events.js",
     "fetch:blockscout": "node src/utils/fetch-blockscout.js",
-    "fetch": "npm run fetch:tzkt && npm run fetch:blockscout"
+    "fetch:fastlogs": "node src/utils/fetch-etherlink-fast-logs.js",
+    "fetch": "npm run fetch:tzkt && npm run fetch:blockscout && npm run fetch:fastlogs && npm run fetch:tzktfastevents"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",

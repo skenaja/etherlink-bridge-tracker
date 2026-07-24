@@ -4,7 +4,7 @@ name: Run Fetch Task and Commit Data
 
 on:
   schedule:
-    - cron: "0 * * * *" # Runs every hour at the beginning of the hour
+    - cron: "0,10,20,30,40,50 * * * *" # Runs every 10 minutes past the hour
   workflow_dispatch:
 
 jobs:

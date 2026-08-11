@@ -1,6 +1,6 @@
 {
-  "timestamp": 1786431539202,
-  "blockNumber": 50747334,
+  "timestamp": 1786435856655,
+  "blockNumber": 50752070,
   "data": [
     {
       "block_number": 7063573,
@@ -342287,6 +342287,42 @@
       "withdrawal_id": "30519",
       "amount": "1000000000000000000",
       "timestamp": "1786429806",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 50748835,
+      "block_hash": "0x3696b5f690e394982f09911867da1484d90ab4a1966d6605718399a61e7b8a4c",
+      "block_timestamp": 1786431605,
+      "transaction_hash": "0x1da44f683169866801faa8b77c2ebf6b01d2fc2428c26af448d322a8ff81aef8",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "30520",
+      "amount": "1000000000000000000",
+      "timestamp": "1786431605",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 50750360,
+      "block_hash": "0xeaae5f2d504c786a2c5ab9a170ead7c867e29c038c5e1cc133bdd7c5dabb35fd",
+      "block_timestamp": 1786433405,
+      "transaction_hash": "0xfbd848be7f90900efd9aaf48d0280c8d71410d297ad5768a718055b91fae86f4",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "30521",
+      "amount": "1000000000000000000",
+      "timestamp": "1786433405",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 50752070,
+      "block_hash": "0xb5a098a8450284b81603b6e857d93eee64c7d6e66ef366bb5bae1b5720bd05fc",
+      "block_timestamp": 1786435205,
+      "transaction_hash": "0xf18c0b15a146ec27828408f273f9385e3cfec34a71af883aff44f99226e3b18b",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "30522",
+      "amount": "1000000000000000000",
+      "timestamp": "1786435205",
       "payload": "0x050098f979",
       "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
     }

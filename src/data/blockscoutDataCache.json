@@ -1,6 +1,6 @@
 {
-  "timestamp": 1786535623076,
-  "blockNumber": 50846986,
+  "timestamp": 1786539461395,
+  "blockNumber": 50850214,
   "backfillCursor": null,
   "data": [
     {
@@ -273115,6 +273115,24 @@
       "amount": "50.0",
       "hash": "0xfc26637f1df30a1e74e584405cce3b9e4a5cf2074d1b1cbed3ddae5e329bf815",
       "timestamp": "2026-08-12T11:38:20.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-08-12",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xd87b60a56b6a624405e821a278f4e24bd6d554a8dec91c9bcec1ccdb2880c1f9",
+      "timestamp": "2026-08-12T12:00:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-08-12",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x07dbe39555eb3f65c49aaa568c5158b17a92aade12a937c5909c29ef60b7d3a8",
+      "timestamp": "2026-08-12T12:30:06.000Z",
       "type": "fast_withdraw_base58"
     }
   ]

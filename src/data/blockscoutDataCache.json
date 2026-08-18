@@ -1,6 +1,6 @@
 {
-  "timestamp": 1787041832193,
-  "blockNumber": 51253320,
+  "timestamp": 1787045312950,
+  "blockNumber": 51255078,
   "backfillCursor": null,
   "data": [
     {
@@ -275671,6 +275671,15 @@
       "amount": "1.0",
       "hash": "0xb66546209f9788b18a889d10c5d61307a42d9be7a168633535c4ce16027c7bd8",
       "timestamp": "2026-08-18T08:30:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-08-18",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x4adb396d6604373d01e12e8a454f44856de661aad2180fd7fe7f89209f24b547",
+      "timestamp": "2026-08-18T09:00:05.000Z",
       "type": "fast_withdraw_base58"
     }
   ]

@@ -1,6 +1,6 @@
 {
-  "timestamp": 1787060363773,
-  "blockNumber": 51266585,
+  "timestamp": 1787063346385,
+  "blockNumber": 51268263,
   "data": [
     {
       "block_number": 7063573,
@@ -346631,6 +346631,18 @@
       "withdrawal_id": "30882",
       "amount": "1000000000000000000",
       "timestamp": "1787059806",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 51268263,
+      "block_hash": "0x1148ca97a1d41e329a52dcd46825d1baf78eaa1e740458685ec90378cdde2066",
+      "block_timestamp": 1787061606,
+      "transaction_hash": "0x3790f38fae0bbc91b77371e704842c69f4c3e21c9159b53ff39bb8245977a5b9",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "30883",
+      "amount": "1000000000000000000",
+      "timestamp": "1787061606",
       "payload": "0x050098f979",
       "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
     }

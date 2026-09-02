@@ -1,6 +1,6 @@
 {
-  "timestamp": 1788384800526,
-  "blockNumber": 52472665,
+  "timestamp": 1788392929710,
+  "blockNumber": 52477443,
   "data": [
     {
       "block_number": 7063573,
@@ -355955,6 +355955,54 @@
       "withdrawal_id": "31677",
       "amount": "1000000000000000000",
       "timestamp": "1788384606",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 52473996,
+      "block_hash": "0x37ee63668b4b9f9962d84086d2b4d8410cbe30b06d4c45431aadea25867a9c18",
+      "block_timestamp": 1788386405,
+      "transaction_hash": "0x04855db6d509fabbd4a13cbe582b3dd78c7e8c277d7316e3f53fcf5585244b90",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "31678",
+      "amount": "1000000000000000000",
+      "timestamp": "1788386405",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 52475245,
+      "block_hash": "0x809f2647bb7f123f369773ec5ded17101d8c05b37d86ce7ac845fe33ad42a0ed",
+      "block_timestamp": 1788388205,
+      "transaction_hash": "0x4544a639a8fdcfe571067851ce5cd93972178504ce267661a5837a569f38afb7",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "31679",
+      "amount": "1000000000000000000",
+      "timestamp": "1788388205",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 52476404,
+      "block_hash": "0xb6bb6f6c83ee653a381f3f509962abea575b09f1f58c80fd8154633f7c8331c2",
+      "block_timestamp": 1788390005,
+      "transaction_hash": "0xfda562757f90bc40afb2640156f580a7cd05c4ba4a499ec236296faf01b3f7b5",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "31680",
+      "amount": "1000000000000000000",
+      "timestamp": "1788390005",
+      "payload": "0x050098f979",
+      "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
+    },
+    {
+      "block_number": 52477443,
+      "block_hash": "0x5ec3a1cf2b5759e46d0c4fbec369dd1916a5dcc47cb9f494cafb6a569f460799",
+      "block_timestamp": 1788391805,
+      "transaction_hash": "0xe092217fc80b5797c7139f9a21e77ee3de5fd1443f457c269cdd3a0132a6bfd8",
+      "target_receiver": "0x0000cf35399ff651c74f3c3cd55eb3b8feb089e767b0",
+      "withdrawal_id": "31681",
+      "amount": "1000000000000000000",
+      "timestamp": "1788391805",
       "payload": "0x050098f979",
       "l2_caller": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05"
     }

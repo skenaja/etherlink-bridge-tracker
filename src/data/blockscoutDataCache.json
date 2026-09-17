@@ -1,6 +1,6 @@
 {
-  "timestamp": 1789678435656,
-  "blockNumber": 53593090,
+  "timestamp": 1789687290601,
+  "blockNumber": 53599749,
   "backfillCursor": null,
   "data": [
     {
@@ -289396,6 +289396,51 @@
       "amount": "1.0",
       "hash": "0x210c82e09c429f8fdcfc3c20d3d800b7a4c46ac4ce110e980474ad6bf4947470",
       "timestamp": "2026-09-17T20:30:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-09-17",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xcb5f80b4036b92248fbfcbbda77ca4a8ba41b6f10ceffeaab8443cefc4a7af18",
+      "timestamp": "2026-09-17T21:00:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-09-17",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x03a676f9d0b8ec57f5ef65f57eac425594eea8d240cc35f8fdb78f53fcdbe945",
+      "timestamp": "2026-09-17T21:30:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-09-17",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xcdc252743f271174d7ca0552fea9ef5b196633b497d4b057dda24d769954b361",
+      "timestamp": "2026-09-17T22:00:37.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-09-17",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x7f9ace1b95c7ff76e84c6991cfba2c87be8debce7359cba87ecf962acf663b31",
+      "timestamp": "2026-09-17T22:30:36.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-09-17",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x3a96f578d5af3925effac63e3593d403b9445dd01edae217fe7ee08e630bca82",
+      "timestamp": "2026-09-17T23:00:05.000Z",
       "type": "fast_withdraw_base58"
     }
   ]

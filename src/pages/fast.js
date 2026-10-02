@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import TipJarButton from "../components/TipJarButton";
+import SettlementForecast from "../components/SettlementForecast";
 
 import etherlinkFastLogsCache from "../data/etherlinkFastLogsCache.json";
 import tzktFastEventsCache from "../data/tzktFastEventsCache.json";
 import { reconcileFastWithdrawals } from "../lib/fastWithdrawalRecon";
+import { forecastSettlements } from "../lib/settlementForecast";
 
 // Cap on the number of `completed` records shipped to the client. All
 // non-completed records are always included in full; only the (very large)
@@ -64,6 +66,7 @@ export async function getStaticProps() {
     etherlinkFastLogsCache,
     tzktFastEventsCache
   );
+  const forecast = forecastSettlements(records, { asOf: summary.as_of });
 
   // Trimmed row projection: only the fields the table renders / filters on.
   const projectRow = (r) => ({
@@ -122,6 +125,7 @@ export async function getStaticProps() {
     props: {
       summary,
       lpSummary,
+      forecast,
       anomalyRows,
       rows,
       completedShown,
@@ -226,6 +230,7 @@ function Addr({ value, base }) {
 export default function FastWithdrawalsPage({
   summary,
   lpSummary,
+  forecast,
   anomalyRows,
   rows,
   completedShown,
@@ -431,7 +436,10 @@ export default function FastWithdrawalsPage({
         </div>
       </div>
 
-      {/* 5. Withdrawals table */}
+      {/* 5. Settlement forecast */}
+      <SettlementForecast forecast={forecast} />
+
+      {/* 6. Withdrawals table */}
       <div className="mb-8">
         <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
           <h2 className="text-2xl font-bold">Withdrawals</h2>
@@ -540,7 +548,7 @@ export default function FastWithdrawalsPage({
         </div>
       </div>
 
-      {/* 6. Footer */}
+      {/* 7. Footer */}
       <hr className="mb-2 mt-8" />
       <p className="mb-4 text-xs">
         BETA WARNING: Data might be wrong or out of date. Fast Withdrawals are

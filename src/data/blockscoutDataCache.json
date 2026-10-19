@@ -1,6 +1,6 @@
 {
-  "timestamp": 1792388282187,
-  "blockNumber": 55965022,
+  "timestamp": 1792410867286,
+  "blockNumber": 55983425,
   "backfillCursor": null,
   "data": [
     {
@@ -303382,6 +303382,141 @@
       "amount": "1.0",
       "hash": "0x441f8a95d6148f413bb9ae64fd74480571c2004c8ca944cd9ad976c0200ce996",
       "timestamp": "2026-10-19T05:30:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x22b876ed307ba562628ac5a784562ff59e811e4f20d8225c272e7c0ac47414c0",
+      "timestamp": "2026-10-19T06:00:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xcb12707a8cfc249c9a886baec376f7e0fe357524628a0400960019b13244be21",
+      "timestamp": "2026-10-19T06:30:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x610e6cd80c6afe9b4c931840c9690198cf61f920c4953c14bd2c18a58166c9fb",
+      "timestamp": "2026-10-19T07:00:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x0a3f520cfdff7cfe41217a69e9ffb11faecc7788901b15689ae917c2a8e24dcc",
+      "timestamp": "2026-10-19T07:30:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x290fdd381bcd29ac25b88189a7ed3737416c7b92bc0357d9de6ea0112f8cff0b",
+      "timestamp": "2026-10-19T08:00:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xc251bc767fb114ddb64275755c1e5224ff8a59a7cf6df9679fc383ec73d7b723",
+      "timestamp": "2026-10-19T08:30:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xf9d8303cbe83679beee2016e946b0e1587ae1a9f014a901542360a2b70eae4e8",
+      "timestamp": "2026-10-19T09:00:07.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xf5db35ed5b2f7f3a0652a4a428868badf4087c52e0c84aab106de6138663c08b",
+      "timestamp": "2026-10-19T09:30:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x5d596ba337c0193b3fd4d23ed7692b381631e6ec5bf1c465af8983bf11dd6e69",
+      "timestamp": "2026-10-19T10:00:05.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0x7f79CD736421251b41de2f93E57c9bCC0cd68661",
+      "to": "tz1M2d8hN85LN3CztBjkDeBSDLJPDHXyzi2p",
+      "amount": "4.0",
+      "hash": "0xea935bd3926bd3d68d9c1ba1650e544e4205b99c68db6932a5d4ba8f9b9d66b5",
+      "timestamp": "2026-10-19T10:01:42.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0x7f79CD736421251b41de2f93E57c9bCC0cd68661",
+      "to": "tz1M2d8hN85LN3CztBjkDeBSDLJPDHXyzi2p",
+      "amount": "130.0",
+      "hash": "0x7f2274ba25c4f36eaf0a1a0a6d6a8920d16eea8475ad5e069a1015948bfa30b2",
+      "timestamp": "2026-10-19T10:02:33.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x1f9e567073053d4b754a4c9bb372438da1dd09bad7d428810bdd63d9388e653b",
+      "timestamp": "2026-10-19T10:30:07.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0x521e6f07bDfa2fF8D072887F0ef3bB908a3D9e2a",
+      "to": "tz1azS8J885z5ymM2Z1GR1B8FxZZxqro1mni",
+      "amount": "206.665911",
+      "hash": "0x68407c0869dfaa588b68fcc88f82f817b21d8bdf7382380bd151f35990ab4116",
+      "timestamp": "2026-10-19T10:33:59.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0xd0af05bfcc669367ae3933f932925fe85120d219a2267bcbfde818e9e66f0670",
+      "timestamp": "2026-10-19T11:00:06.000Z",
+      "type": "fast_withdraw_base58"
+    },
+    {
+      "sent": "2026-10-19",
+      "from": "0xF9e0F0A650716e7d626C66ed13459Cb92491Ac05",
+      "to": "tz1eXeKyNJoHnced163yaAUMwsszegvAE8MK",
+      "amount": "1.0",
+      "hash": "0x6b534a35eea45c4d9681500b6acc097e5aba1b5bd457726e9d3236abb895c1b7",
+      "timestamp": "2026-10-19T11:30:06.000Z",
       "type": "fast_withdraw_base58"
     }
   ]
